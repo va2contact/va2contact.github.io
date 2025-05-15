@@ -18,12 +18,12 @@
     <meta property="og:url" content="https://va2contact.github.io/" />
     <meta property="og:title" content="VA2CONTACT: Visual-auditory Extrinsic Contact Estimation" />
     <meta property="og:description"
-        content="VA2CONTACT is a novel approach for contact estimation that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation." />
+        content="VA2CONTACT is a novel visual-auditory method for extrinsic contact estimation that integrates global scene information from vision with local contact cues obtained through active audio sensing." />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="VA2CONTACT: Visual-auditory Extrinsic Contact Estimation" />
     <meta name="twitter:description"
-        content="VA2CONTACT is a novel approach for contact estimation that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation." />
+        content="VA2CONTACT is a novel visual-auditory method for extrinsic contact estimation that integrates global scene information from vision with local contact cues obtained through active audio sensing." />
     <meta name="twitter:image" content="https://va2contact.github.io/img/teaser.jpg" />
 
     <link rel="icon" href="favicon.ico">
@@ -51,15 +51,14 @@
                 </div>
                 <div class="container-fluid text-center">
                     <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
-                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 1¹</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 2¹</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 3²</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="mailto:yixili@umich.edu">Xili Yi¹</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="mailto:jayjun@umich.edu">Jayjun Lee¹</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="mailto:nfz@umich.edu">Nima Fazeli¹</a></li>
                     </ul>
                 </div>
                 <div class="container-fluid text-center">
                     <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
-                        <li><a style="font-size: calc(min(3vw, 15px))">¹University 1</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))">²University 2</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))">¹University of Michigan</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,25 +104,16 @@
             <!-- Video Demo Section -->
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h3>Video Demonstrations</h3>
+                    <h3>Video Demonstration</h3>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8 offset-md-2">
                             <div class="ratio ratio-16x9" style="margin-bottom: 20px;">
                                 <video controls width="100%" poster="img/video_thumbnail.jpg">
                                     <source src="videos/demo1.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
-                            <p class="text-center">Contact Estimation Demo 1</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="ratio ratio-16x9" style="margin-bottom: 20px;">
-                                <video controls width="100%" poster="img/video_thumbnail2.jpg">
-                                    <source src="videos/demo2.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <p class="text-center">Contact Estimation Demo 2</p>
+                            <p class="text-center">Contact Estimation Demo</p>
                         </div>
                     </div>
                 </div>
@@ -132,7 +122,7 @@
             <!-- TL;DR Section -->
             <div class="row">
                 <div class="col-md-8 offset-md-2 rounded highlight-section">
-                    <h6 style="text-align: center; color:rgb(0, 0, 0)"><strong>TL;DR</strong>: VA2CONTACT is a novel approach that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation, enabling more precise and reliable interaction with the environment.</h6>
+                    <h6 style="text-align: center; color:rgb(0, 0, 0)"><strong>TL;DR</strong>: VA2CONTACT integrates visual and active audio sensing to accurately detect extrinsic contacts between a grasped object and the environment, even in occluded or ambiguous scenarios, with zero-shot sim-to-real transfer.</h6>
                 </div>
             </div><br><br>
 
@@ -141,7 +131,13 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Abstract</h3>
                     <p style="text-align: justify;">
-                        Contact estimation is a fundamental capability for robots to interact safely and effectively with their environment. Traditional approaches rely primarily on visual or force-based sensing, each with significant limitations. Visual methods struggle with occlusions and lighting variations, while force sensors require direct integration into the robot's structure. In this paper, we present VA2CONTACT, a novel multimodal approach that combines visual and auditory sensing to achieve robust contact estimation. Our method leverages the complementary nature of these modalities: vision provides spatial context while audio captures the distinctive acoustic signatures of different contact events. We demonstrate that this fusion significantly improves contact detection accuracy, contact type classification, and contact location estimation compared to unimodal approaches. Extensive experiments in both simulated and real-world environments show that VA2CONTACT achieves state-of-the-art performance across various challenging scenarios, including occluded contacts and diverse surface materials.
+                        Extrinsic contact estimation is a crucial capability for robots to accurately understand how tools interact with their environment. Vision-based methods allow observation of the entire scene, but they often fall short in providing sufficient local information, particularly when contacts are occluded or within the resolution limits of the sensor. While tactile sensors or force/torque sensors offer precise measurements of direct contact surfaces, they struggle to perceive indirect contacts, such as those between a tool and the environment.
+                    </p>
+                    <p style="text-align: justify;">
+                        To address this challenge, we propose a novel visual-auditory extrinsic contact estimation method, VA2CONTACT. Our approach integrates global visual feedback with local information obtained through active audio sensing. This enables the estimation of extrinsic contacts as masks in 2D image space, from which both the contact location and type can be inferred. We equip a robotic gripper with contact microphones and conduction speakers, enabling the system to emit and receive acoustic signals through the grasped object to detect external contacts.
+                    </p>
+                    <p style="text-align: justify;">
+                        We train our perception pipeline entirely in simulation and achieve zero-shot transfer to the real-world. To bridge the sim-to-real gap, we introduce a real-to-sim audio hallucination technique, injecting real-world audio samples into simulated scenes with ground-truth contact labels. The resulting multimodal model accurately estimates both the location and size of extrinsic contacts across a range of cluttered and occluded scenarios. We further demonstrate that explicit contact prediction significantly improves policy learning for downstream contact-rich manipulation tasks.
                     </p>
                 </div>
             </div><br>
@@ -151,7 +147,7 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Method</h3>
                     <p style="text-align: justify;">
-                        Our approach leverages the complementary strengths of visual and auditory sensing to achieve robust contact estimation. The method consists of three main components:
+                        Our method addresses the challenges of extrinsic contact estimation by combining the strengths of multiple sensing modalities. The system consists of three main components that work together to accurately detect and localize contacts between a grasped object and the environment.
                     </p>
                     <div class="row">
                         <div class="col-md-12 text-center">
@@ -159,13 +155,13 @@
                         </div>
                     </div>
                     <p style="text-align: justify;">
-                        <strong>1. Active Audio Sensing:</strong> We employ a novel active audio sensing approach that uses strategically placed microphones to capture the acoustic signatures of different contact events. This provides rich information about contact dynamics that is often invisible to visual sensors.
+                        <strong>1. Active Audio Sensing:</strong> We equip the robot gripper with contact microphones and conduction speakers. One finger acts as an actuator (speaker) emitting controlled acoustic signals (sweeping impulse signals), while the other finger serves as a receptor (microphone) receiving the acoustic feedback. This setup enables contact perception even in static scenarios, as contact with the environment alters the received signal due to energy absorption.
                     </p>
                     <p style="text-align: justify;">
-                        <strong>2. Visual-Auditory Fusion Network:</strong> We design a deep neural network architecture that effectively fuses visual and auditory features at multiple levels. This allows the model to leverage both spatial information from vision and temporal dynamics from audio.
+                        <strong>2. Real-to-Sim Audio Hallucination:</strong> To bridge the sim-to-real gap, we collect audio signals from real-world robot manipulations with simple contact type labels (free, point, line, patch). We then inject these real-world audio samples into simulated scenes with ground-truth contact labels. This technique allows us to train our model entirely in simulation while maintaining robust performance in real-world scenarios.
                     </p>
                     <p style="text-align: justify;">
-                        <strong>3. Contact Classification and Localization:</strong> Our system simultaneously performs contact detection, classification (point, line, or patch), and precise localization, enabling robots to respond appropriately to different types of contact events.
+                        <strong>3. Multimodal Fusion Network:</strong> Our model architecture consists of three UNet encoder streams processing different data: (1) a reference depth image of the object when lifted without contact, (2) current depth and optical flow images cropped around the projected end-effector coordinates, and (3) log-mel spectrograms from audio waveforms. These features are fused with robot pose data to predict per-pixel contact probability maps that indicate both location and type of contact.
                     </p>
                 </div>
             </div><br>
@@ -177,20 +173,20 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="feature-box">
-                                <h4>Multimodal Sensing</h4>
-                                <p>Combines visual and auditory information to overcome the limitations of each individual modality, resulting in more robust contact estimation.</p>
+                                <h4>Active Audio Sensing</h4>
+                                <p>Uses conduction speakers and contact microphones to detect contacts even in static scenarios and when visual occlusions are present, providing rich information about contact dynamics that is often invisible to visual sensors.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="feature-box">
                                 <h4>Occlusion Handling</h4>
-                                <p>Maintains high performance even when contact points are visually occluded, thanks to the complementary information provided by audio signals.</p>
+                                <p>Maintains high performance even when contact points are visually occluded or in ambiguous near-contact scenarios, thanks to the complementary information provided by audio signals that can travel through solid objects.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="feature-box">
-                                <h4>Material Adaptability</h4>
-                                <p>Effectively works across diverse surface materials by learning the unique acoustic signatures associated with different contact interactions.</p>
+                                <h4>Sim-to-Real Transfer</h4>
+                                <p>Our real-to-sim audio hallucination technique enables zero-shot transfer from simulation to real-world scenarios, eliminating the need for real-world training data with contact labels while maintaining robust performance.</p>
                             </div>
                         </div>
                     </div>
@@ -202,7 +198,7 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Results</h3>
                     <p style="text-align: justify;">
-                        We evaluated our method on a variety of contact estimation tasks in both simulated and real-world environments. Our experiments demonstrate that VA2CONTACT significantly outperforms vision-only and audio-only baselines.
+                        We evaluated VA2CONTACT on a variety of contact estimation tasks in both simulated and real-world environments, comparing it against the vision-only Im2Contact method and ablation studies. Our experiments demonstrate that our multimodal approach significantly outperforms vision-only methods, especially in challenging scenarios.
                     </p>
                     <div class="row">
                         <div class="col-md-12 text-center">
@@ -213,10 +209,11 @@
                         Key findings include:
                     </p>
                     <ul style="text-align: left;">
-                        <li>15-20% improvement in contact detection accuracy compared to vision-only methods</li>
-                        <li>Robust performance under visual occlusions, maintaining over 85% accuracy when contact points are partially or fully occluded</li>
-                        <li>Precise contact type classification (point, line, patch) with over 90% accuracy</li>
-                        <li>Consistent performance across diverse surface materials and lighting conditions</li>
+                        <li>Higher recall and F1 scores in general contact detection, indicating superior ability to detect true contacts with fewer false negatives</li>
+                        <li>Accurate contact detection even in heavily occluded scenarios where vision-only methods fail</li>
+                        <li>Better performance in ambiguous near-contact scenarios where visual information is insufficient</li>
+                        <li>Successful zero-shot transfer from simulation to real-world without additional training</li>
+                        <li>Improved performance in downstream manipulation tasks: a contact-aware diffusion policy for a wiping task achieved 8/10 success rate compared to 4/10 for a vision-only baseline</li>
                     </ul>
                 </div>
             </div><br>
@@ -227,22 +224,22 @@
                     <h3>Team</h3>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Author 1" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Author 1</h4>
-                            <p>University 1</p>
-                            <p><a href="mailto:author1@university1.edu">author1@university1.edu</a></p>
+                            <img src="img/place_holder.jpg" alt="Xili Yi" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Xili Yi</h4>
+                            <p>University of Michigan</p>
+                            <p><a href="mailto:yixili@umich.edu">yixili@umich.edu</a></p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Author 2" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Author 2</h4>
-                            <p>University 1</p>
-                            <p><a href="mailto:author2@university1.edu">author2@university1.edu</a></p>
+                            <img src="img/place_holder.jpg" alt="Jayjun Lee" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Jayjun Lee</h4>
+                            <p>University of Michigan</p>
+                            <p><a href="mailto:jayjun@umich.edu">jayjun@umich.edu</a></p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Author 3" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Author 3</h4>
-                            <p>University 2</p>
-                            <p><a href="mailto:author3@university2.edu">author3@university2.edu</a></p>
+                            <img src="img/place_holder.jpg" alt="Nima Fazeli" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Nima Fazeli</h4>
+                            <p>University of Michigan</p>
+                            <p><a href="mailto:nfz@umich.edu">nfz@umich.edu</a></p>
                         </div>
                     </div>
                 </div>
@@ -254,10 +251,10 @@
                     <h3>Citation</h3>
                     <div class="highlight-section">
                         <pre style="text-align: left; background: none; border: none; padding: 10px;">
-@inproceedings{author2025va2contact,
+@inproceedings{yi2025va2contact,
   title={VA2CONTACT: Visual-auditory Extrinsic Contact Estimation},
-  author={Author1 and Author2 and Author3},
-  booktitle={Conference on Robot Learning},
+  author={Yi, Xili and Lee, Jayjun and Fazeli, Nima},
+  booktitle={Conference on Robot Learning (CoRL)},
   year={2025}
 }
                         </pre>
@@ -270,14 +267,14 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Contact</h3>
                     <p>
-                        For questions about the project, please contact <a href="mailto:author1@university1.edu">Author 1</a> or <a href="mailto:author2@university1.edu">Author 2</a>.
+                        For questions about the project, please contact <a href="mailto:yixili@umich.edu">Xili Yi</a> or <a href="mailto:nfz@umich.edu">Nima Fazeli</a>.
                     </p>
                 </div>
             </div>
         </main>
 
         <footer class="mt-5 pt-5 text-center text-muted">
-            <p>© 2025 VA2CONTACT Project | University 1 & University 2</p>
+            <p>© 2025 VA2CONTACT Project | University of Michigan</p>
         </footer>
     </div>
 </body>
