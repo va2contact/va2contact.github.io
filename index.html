@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>VA2CONTACT: Visual-auditory Extrinsic Contact Estimation</title>
+
+    <meta name="description" content="VA2CONTACT: Visual-auditory Extrinsic Contact Estimation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="https://va2contact.github.io/img/teaser.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://va2contact.github.io/" />
+    <meta property="og:title" content="VA2CONTACT: Visual-auditory Extrinsic Contact Estimation" />
+    <meta property="og:description"
+        content="VA2CONTACT is a novel approach for contact estimation that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VA2CONTACT: Visual-auditory Extrinsic Contact Estimation" />
+    <meta name="twitter:description"
+        content="VA2CONTACT is a novel approach for contact estimation that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation." />
+    <meta name="twitter:image" content="https://va2contact.github.io/img/teaser.jpg" />
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+
+<body style="padding: 5%; padding-top: min(15px, 5%); padding-bottom: min(5px, 5%); width: 100%">
+    <div class="container-lg text-center" style="max-width: 1500px; margin: auto;" id="main">
+        <header role="banner">
+            <div class="row">
+                <h2 class="col-md-12 text-center">
+                    <b>VA2CONTACT:</b> Visual-auditory Extrinsic Contact Estimation</br>
+                </h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                </div>
+                <div class="container-fluid text-center">
+                    <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 1¹</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 2¹</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="#">Author 3²</a></li>
+                    </ul>
+                </div>
+                <div class="container-fluid text-center">
+                    <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
+                        <li><a style="font-size: calc(min(3vw, 15px))">¹University 1</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))">²University 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center">
+                <span>
+                    <a href="#" class="button"
+                        style="width: 80px; font-size: 15px">
+                        <span class="icon">
+                            <i class="fa fa-file-pdf-o"></i>
+                        </span>
+                        <span>Paper</span>
+                    </a>
+                </span>
+                <span>
+                    <a href="#" class="button"
+                        style="width: 80px; font-size: 15px">
+                        <span class="icon">
+                            <i class="fa fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                    </a>
+                </span>
+                <span>
+                    <a href="#" class="button"
+                        style="width: 80px; font-size: 15px">
+                        <span class="icon">
+                            <i class="fa fa-database"></i>
+                        </span>
+                        <span>Data</span>
+                    </a>
+                </span>
+            </div>
+        </header>
+
+        <main role="main">
+            <!-- Teaser Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <img src="img/teaser.jpg" alt="VA2CONTACT Teaser" class="img-fluid" style="width: 60%; margin: 0 auto 20px auto; display: block;">
+                </div>
+            </div>
+
+            <!-- Video Demo Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Video Demonstrations</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="ratio ratio-16x9" style="margin-bottom: 20px;">
+                                <video controls width="100%" poster="img/video_thumbnail.jpg">
+                                    <source src="videos/demo1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="text-center">Contact Estimation Demo 1</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ratio ratio-16x9" style="margin-bottom: 20px;">
+                                <video controls width="100%" poster="img/video_thumbnail2.jpg">
+                                    <source src="videos/demo2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="text-center">Contact Estimation Demo 2</p>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- TL;DR Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2 rounded highlight-section">
+                    <h6 style="text-align: center; color:rgb(0, 0, 0)"><strong>TL;DR</strong>: VA2CONTACT is a novel approach that combines visual and auditory sensing to accurately detect and classify contact events in robotic manipulation, enabling more precise and reliable interaction with the environment.</h6>
+                </div>
+            </div><br><br>
+
+            <!-- Abstract Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Abstract</h3>
+                    <p style="text-align: justify;">
+                        Contact estimation is a fundamental capability for robots to interact safely and effectively with their environment. Traditional approaches rely primarily on visual or force-based sensing, each with significant limitations. Visual methods struggle with occlusions and lighting variations, while force sensors require direct integration into the robot's structure. In this paper, we present VA2CONTACT, a novel multimodal approach that combines visual and auditory sensing to achieve robust contact estimation. Our method leverages the complementary nature of these modalities: vision provides spatial context while audio captures the distinctive acoustic signatures of different contact events. We demonstrate that this fusion significantly improves contact detection accuracy, contact type classification, and contact location estimation compared to unimodal approaches. Extensive experiments in both simulated and real-world environments show that VA2CONTACT achieves state-of-the-art performance across various challenging scenarios, including occluded contacts and diverse surface materials.
+                    </p>
+                </div>
+            </div><br>
+
+            <!-- Method Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Method</h3>
+                    <p style="text-align: justify;">
+                        Our approach leverages the complementary strengths of visual and auditory sensing to achieve robust contact estimation. The method consists of three main components:
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="img/method.jpg" alt="Method Overview" class="img-fluid" style="width: 80%; margin: 20px auto;">
+                        </div>
+                    </div>
+                    <p style="text-align: justify;">
+                        <strong>1. Active Audio Sensing:</strong> We employ a novel active audio sensing approach that uses strategically placed microphones to capture the acoustic signatures of different contact events. This provides rich information about contact dynamics that is often invisible to visual sensors.
+                    </p>
+                    <p style="text-align: justify;">
+                        <strong>2. Visual-Auditory Fusion Network:</strong> We design a deep neural network architecture that effectively fuses visual and auditory features at multiple levels. This allows the model to leverage both spatial information from vision and temporal dynamics from audio.
+                    </p>
+                    <p style="text-align: justify;">
+                        <strong>3. Contact Classification and Localization:</strong> Our system simultaneously performs contact detection, classification (point, line, or patch), and precise localization, enabling robots to respond appropriately to different types of contact events.
+                    </p>
+                </div>
+            </div><br>
+
+            <!-- Features Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Key Features</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <h4>Multimodal Sensing</h4>
+                                <p>Combines visual and auditory information to overcome the limitations of each individual modality, resulting in more robust contact estimation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <h4>Occlusion Handling</h4>
+                                <p>Maintains high performance even when contact points are visually occluded, thanks to the complementary information provided by audio signals.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <h4>Material Adaptability</h4>
+                                <p>Effectively works across diverse surface materials by learning the unique acoustic signatures associated with different contact interactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- Results Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Results</h3>
+                    <p style="text-align: justify;">
+                        We evaluated our method on a variety of contact estimation tasks in both simulated and real-world environments. Our experiments demonstrate that VA2CONTACT significantly outperforms vision-only and audio-only baselines.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="img/results.jpg" alt="Experimental Results" class="img-fluid" style="width: 80%; margin: 20px auto;">
+                        </div>
+                    </div>
+                    <p style="text-align: justify;">
+                        Key findings include:
+                    </p>
+                    <ul style="text-align: left;">
+                        <li>15-20% improvement in contact detection accuracy compared to vision-only methods</li>
+                        <li>Robust performance under visual occlusions, maintaining over 85% accuracy when contact points are partially or fully occluded</li>
+                        <li>Precise contact type classification (point, line, patch) with over 90% accuracy</li>
+                        <li>Consistent performance across diverse surface materials and lighting conditions</li>
+                    </ul>
+                </div>
+            </div><br>
+
+            <!-- Team Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Team</h3>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="img/place_holder.jpg" alt="Author 1" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Author 1</h4>
+                            <p>University 1</p>
+                            <p><a href="mailto:author1@university1.edu">author1@university1.edu</a></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="img/place_holder.jpg" alt="Author 2" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Author 2</h4>
+                            <p>University 1</p>
+                            <p><a href="mailto:author2@university1.edu">author2@university1.edu</a></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="img/place_holder.jpg" alt="Author 3" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                            <h4>Author 3</h4>
+                            <p>University 2</p>
+                            <p><a href="mailto:author3@university2.edu">author3@university2.edu</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- Citation Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Citation</h3>
+                    <div class="highlight-section">
+                        <pre style="text-align: left; background: none; border: none; padding: 10px;">
+@inproceedings{author2025va2contact,
+  title={VA2CONTACT: Visual-auditory Extrinsic Contact Estimation},
+  author={Author1 and Author2 and Author3},
+  booktitle={Conference on Robot Learning},
+  year={2025}
+}
+                        </pre>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- Contact Section -->
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3>Contact</h3>
+                    <p>
+                        For questions about the project, please contact <a href="mailto:author1@university1.edu">Author 1</a> or <a href="mailto:author2@university1.edu">Author 2</a>.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-5 pt-5 text-center text-muted">
+            <p>© 2025 VA2CONTACT Project | University 1 & University 2</p>
+        </footer>
+    </div>
+</body>
+
+</html>
