@@ -64,30 +64,27 @@
             </div>
             <div class="row text-center">
                 <span>
-                    <a href="#" class="button"
-                        style="width: 80px; font-size: 15px">
+                    <a class="button" style="width: 160px; font-size: 15px; background-color: #6c757d; cursor: not-allowed;" disabled>
                         <span class="icon">
                             <i class="fa fa-file-pdf-o"></i>
                         </span>
-                        <span>Paper</span>
+                        <span>Paper (Coming Soon)</span>
                     </a>
                 </span>
                 <span>
-                    <a href="#" class="button"
-                        style="width: 80px; font-size: 15px">
+                    <a class="button" style="width: 160px; font-size: 15px; background-color: #6c757d; cursor: not-allowed;" disabled>
                         <span class="icon">
                             <i class="fa fa-github"></i>
                         </span>
-                        <span>Code</span>
+                        <span>Code (Coming Soon)</span>
                     </a>
                 </span>
                 <span>
-                    <a href="#" class="button"
-                        style="width: 80px; font-size: 15px">
+                    <a class="button" style="width: 160px; font-size: 15px; background-color: #6c757d; cursor: not-allowed;" disabled>
                         <span class="icon">
                             <i class="fa fa-database"></i>
                         </span>
-                        <span>Data</span>
+                        <span>Data (Coming Soon)</span>
                     </a>
                 </span>
             </div>
@@ -109,7 +106,7 @@
                         <div class="col-md-8 offset-md-2">
                             <div class="ratio ratio-16x9" style="margin-bottom: 20px;">
                                 <video controls width="100%" poster="img/video_thumbnail.jpg">
-                                    <source src="videos/demo1.mp4" type="video/mp4">
+                                    <source src="videos/VA2C_video.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -131,13 +128,7 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Abstract</h3>
                     <p style="text-align: justify;">
-                        Extrinsic contact estimation is a crucial capability for robots to accurately understand how tools interact with their environment. Vision-based methods allow observation of the entire scene, but they often fall short in providing sufficient local information, particularly when contacts are occluded or within the resolution limits of the sensor. While tactile sensors or force/torque sensors offer precise measurements of direct contact surfaces, they struggle to perceive indirect contacts, such as those between a tool and the environment.
-                    </p>
-                    <p style="text-align: justify;">
-                        To address this challenge, we propose a novel visual-auditory extrinsic contact estimation method, VA2CONTACT. Our approach integrates global visual feedback with local information obtained through active audio sensing. This enables the estimation of extrinsic contacts as masks in 2D image space, from which both the contact location and type can be inferred. We equip a robotic gripper with contact microphones and conduction speakers, enabling the system to emit and receive acoustic signals through the grasped object to detect external contacts.
-                    </p>
-                    <p style="text-align: justify;">
-                        We train our perception pipeline entirely in simulation and achieve zero-shot transfer to the real-world. To bridge the sim-to-real gap, we introduce a real-to-sim audio hallucination technique, injecting real-world audio samples into simulated scenes with ground-truth contact labels. The resulting multimodal model accurately estimates both the location and size of extrinsic contacts across a range of cluttered and occluded scenarios. We further demonstrate that explicit contact prediction significantly improves policy learning for downstream contact-rich manipulation tasks.
+                        Robust manipulation often hinges on a robot's ability to perceive extrinsic contacts—contacts between a grasped object and its surrounding environment. However, these contacts are difficult to observe through vision alone due to occlusions, limited resolution, and ambiguous near-contact states. In this paper, we propose a visual-auditory method for extrinsic contact estimation that integrates global scene information from vision with local contact cues obtained through active audio sensing. Our approach equips a robotic gripper with contact microphones and conduction speakers, enabling the system to emit and receive acoustic signals through the grasped object to detect external contacts. We train our perception pipeline entirely in simulation and zero-shot transfer to the real-world. To bridge the sim-to-real gap, we introduce a real-to-sim audio hallucination technique, injecting real-world audio samples into simulated scenes with ground-truth contact labels. The resulting multimodal model accurately estimates both the location and size of extrinsic contacts across a range of cluttered and occluded scenarios. We further demonstrate that explicit contact prediction significantly improves policy learning for downstream contact-rich manipulation tasks.
                     </p>
                 </div>
             </div><br>
@@ -151,17 +142,18 @@
                     </p>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <img src="img/method.jpg" alt="Method Overview" class="img-fluid" style="width: 80%; margin: 20px auto;">
+                            <img src="img/main_v9_page-0001.jpg" alt="Method Overview" class="img-fluid" style="width: 80%; margin: 20px auto;">
                         </div>
                     </div>
                     <p style="text-align: justify;">
-                        <strong>1. Active Audio Sensing:</strong> We equip the robot gripper with contact microphones and conduction speakers. One finger acts as an actuator (speaker) emitting controlled acoustic signals (sweeping impulse signals), while the other finger serves as a receptor (microphone) receiving the acoustic feedback. This setup enables contact perception even in static scenarios, as contact with the environment alters the received signal due to energy absorption.
+                        <strong>1. Real-to-Sim Audio Hallucination:</strong> Since dense contact maps are difficult to obtain in the real world, we train entirely in simulation using ground-truth contact labels, and bridge the gap to real-world acoustics using an audio hallucination technique. To overcome the challenge of simulating audio, we introduce an audio hallucination technique. In the real world, we collect audio signals paired with labeled contact types using teleoperated wiping over various surfaces. In simulation, we generate contact maps and randomly sample real spectrograms corresponding to their type—bridging real-world acoustic signals and simulated labels.
                     </p>
                     <p style="text-align: justify;">
-                        <strong>2. Real-to-Sim Audio Hallucination:</strong> To bridge the sim-to-real gap, we collect audio signals from real-world robot manipulations with simple contact type labels (free, point, line, patch). We then inject these real-world audio samples into simulated scenes with ground-truth contact labels. This technique allows us to train our model entirely in simulation while maintaining robust performance in real-world scenarios.
+                        <strong>2. VA2Contact:</strong> VA2Contact—that predicts a dense contact probability map from depth, optical flow, and an audio spectrogram.
                     </p>
                     <p style="text-align: justify;">
-                        <strong>3. Multimodal Fusion Network:</strong> Our model architecture consists of three UNet encoder streams processing different data: (1) a reference depth image of the object when lifted without contact, (2) current depth and optical flow images cropped around the projected end-effector coordinates, and (3) log-mel spectrograms from audio waveforms. These features are fused with robot pose data to predict per-pixel contact probability maps that indicate both location and type of contact.
+                        <strong>3. Real-World Contact-Aware Policy:</strong> We freeze the VA2Contact model and use its contact predictions—along with camera input—as observations for a Diffusion Policy.
+
                     </p>
                 </div>
             </div><br>
@@ -198,11 +190,11 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Results</h3>
                     <p style="text-align: justify;">
-                        We evaluated VA2CONTACT on a variety of contact estimation tasks in both simulated and real-world environments, comparing it against the vision-only Im2Contact method and ablation studies. Our experiments demonstrate that our multimodal approach significantly outperforms vision-only methods, especially in challenging scenarios.
+                        We evaluated VA2CONTACT on a variety of contact estimation tasks in real-world environments, comparing it against the vision-only Im2Contact method and ablation studies. Our experiments demonstrate that our multimodal approach significantly outperforms vision-only methods, especially in challenging scenarios.
                     </p>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <img src="img/results.jpg" alt="Experimental Results" class="img-fluid" style="width: 80%; margin: 20px auto;">
+                            <img src="img/VA2C_result.png" alt="Experimental Results" class="img-fluid" style="width: 80%; margin: 20px auto;">
                         </div>
                     </div>
                     <p style="text-align: justify;">
@@ -224,28 +216,37 @@
                     <h3>Team</h3>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Xili Yi" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Xili Yi</h4>
-                            <p>University of Michigan</p>
-                            <p><a href="mailto:yixili@umich.edu">yixili@umich.edu</a></p>
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="img/xili.jpg" alt="Xili Yi" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                                <h4 style="text-align: center; width: 100%;">Xili Yi</h4>
+                                <p style="text-align: center; margin-bottom: 5px;">Department of Robotics</p>
+                                <p style="text-align: center; margin-bottom: 5px;">University of Michigan</p>
+                                <p style="text-align: center;"><a href="mailto:yixili@umich.edu">yixili@umich.edu</a></p>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Jayjun Lee" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Jayjun Lee</h4>
-                            <p>University of Michigan</p>
-                            <p><a href="mailto:jayjun@umich.edu">jayjun@umich.edu</a></p>
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="img/jayjun.jpg" alt="Jayjun Lee" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                                <h4 style="text-align: center; width: 100%;">Jayjun Lee</h4>
+                                <p style="text-align: center; margin-bottom: 5px;">Department of Robotics</p>
+                                <p style="text-align: center; margin-bottom: 5px;">University of Michigan</p>
+                                <p style="text-align: center;"><a href="mailto:jayjun@umich.edu">jayjun@umich.edu</a></p>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <img src="img/place_holder.jpg" alt="Nima Fazeli" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
-                            <h4>Nima Fazeli</h4>
-                            <p>University of Michigan</p>
-                            <p><a href="mailto:nfz@umich.edu">nfz@umich.edu</a></p>
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="img/nima.png" alt="Nima Fazeli" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px;">
+                                <h4 style="text-align: center; width: 100%;">Nima Fazeli</h4>
+                                <p style="text-align: center; margin-bottom: 5px;">Department of Robotics</p>
+                                <p style="text-align: center; margin-bottom: 5px;">University of Michigan</p>
+                                <p style="text-align: center;"><a href="mailto:nfz@umich.edu">nfz@umich.edu</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div><br>
 
-            <!-- Citation Section -->
+            <!-- Citation Section - Commented out
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <h3>Citation</h3>
@@ -261,6 +262,7 @@
                     </div>
                 </div>
             </div><br>
+            -->
 
             <!-- Contact Section -->
             <div class="row">
